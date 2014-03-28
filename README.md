@@ -1,6 +1,6 @@
 # HurricaneHunter Release
 
-BOSH release for the HurricaneHunter example application in [dropsonde](github.com/cloudfoundry-incubator/dropsonde)
+BOSH release for the HurricaneHunter example application in [dropsonde](https://github.com/cloudfoundry-incubator/dropsonde)
 
 ## Usage
 

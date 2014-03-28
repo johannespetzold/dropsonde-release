@@ -1,3 +1,25 @@
 ---
 name: hurricanehunter-warden
 director_uuid: PLACEHOLDER-DIRECTOR-UUID
+
+meta:
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu
+
+networks:
+  - name: cf1
+    subnets:
+    - cloud_properties:
+        name: random
+      range: 10.244.0.0/24
+      reserved:
+      - 10.244.0.1
+      static:
+      - 10.244.0.2
+
+jobs:
+  - name: hurricanehunter
+    networks:
+      - name: cf1
+        static_ips:
+        - 10.244.0.2

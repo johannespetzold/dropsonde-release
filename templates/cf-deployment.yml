@@ -9,14 +9,7 @@ releases:
 
 networks:
   - name: cf1
-    subnets:
-    - cloud_properties:
-        name: random
-      range: 10.244.0.0/24
-      reserved:
-      - 10.244.0.1
-      static:
-      - 10.244.0.2
+    subnets: (( merge ))
 
 jobs:
   - name: hurricanehunter
@@ -25,8 +18,7 @@ jobs:
     resource_pool: medium_z1
     networks:
       - name: cf1
-        static_ips:
-          - 10.244.0.2
+        static_ips: (( merge ))
     properties:
       network_name: cf1
 
@@ -36,7 +28,7 @@ properties:
 
 meta:
   stemcell:
-    name: bosh-warden-boshlite-ubuntu
+    name: (( merge ))
     version: latest
 
 compilation:

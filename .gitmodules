@@ -1,0 +1,9 @@
+[submodule "src/hurricanehunter/src/github.com/cloudfoundry-incubator/dropsonde"]
+	path = src/hurricanehunter/src/github.com/cloudfoundry-incubator/dropsonde
+	url = https://github.com/cloudfoundry-incubator/dropsonde.git
+[submodule "src/hurricanehunter/src/code.google.com/p/gogoprotobuf"]
+	path = src/hurricanehunter/src/code.google.com/p/gogoprotobuf
+	url = https://code.google.com/p/gogoprotobuf/
+[submodule "src/hurricanehunter/src/github.com/nu7hatch/gouuid"]
+	path = src/hurricanehunter/src/github.com/nu7hatch/gouuid
+	url = https://github.com/nu7hatch/gouuid.git

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+BOSH_RELEASES_DIR=${BOSH_RELEASES_DIR:-~/workspace}
+
+RELEASE_HOME=$(dirname $0)
+BOSH_STATUS=$(bosh status)
+EXPECTED_DIRECTOR_NAME="Bosh Lite Director"
+DIRECTOR_UUID=$(echo "$BOSH_STATUS" | grep UUID | awk '{print $2}')
+
+if [[ "$(echo "$BOSH_STATUS" | grep Name)" != *"$EXPECTED_DIRECTOR_NAME"* ]]; then
+  echo "Can only target $EXPECTED_DIRECTOR_NAME. Please use 'bosh target' before running this script."
+  exit 1
+fi
+
+temp_dir=${TMPDIR:-${RELEASE_HOME}/tmp}/$$.tmp
+mkdir -p $temp_dir
+
+cp $RELEASE_HOME/templates/cf-stub-spiff.yml $temp_dir/cf-stub-with-uuid.yml
+
+echo $DIRECTOR_UUID
+perl -pi -e "s/PLACEHOLDER-DIRECTOR-UUID/$DIRECTOR_UUID/g" $temp_dir/cf-stub-with-uuid.yml
+
+$RELEASE_HOME/generate_deployment_manifest \
+                                              warden \
+                                              $temp_dir/cf-stub-with-uuid.yml \
+                                              $* > $RELEASE_HOME/templates/manifest.yml
+
+rm -f $temp_dir/*
+rmdir $temp_dir
+
+bosh deployment $RELEASE_HOME/templates/manifest.yml
+bosh status

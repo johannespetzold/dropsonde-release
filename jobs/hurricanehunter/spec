@@ -1,0 +1,7 @@
+---
+name: hurricanehunter
+templates:
+  hurricanehunter_ctl: bin/hurricanehunter_ctl
+
+packages:
+- hurricanehunter

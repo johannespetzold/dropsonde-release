@@ -1,0 +1,6 @@
+---
+name: hurricanehunter
+dependencies:
+- golang
+files:
+- hurricanehunter/**/*

@@ -1,0 +1,6 @@
+.blobs
+.dev_builds
+blobs
+dev_releases
+config/dev.yml
+templates/manifest.yml

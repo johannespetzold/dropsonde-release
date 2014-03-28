@@ -1,0 +1,10 @@
+set -e -x
+
+export GOROOT=$(readlink -nf /var/vcap/packages/golang)
+export PATH=/var/vcap/packages/git/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=$PWD/hurricanehunter
+
+go install github.com/cloudfoundry-incubator/dropsonde/examples/hurricanehunter
+cp -a $PWD/hurricanehunter/bin/hurricanehunter ${BOSH_INSTALL_TARGET}
+

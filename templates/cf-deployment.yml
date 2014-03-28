@@ -7,9 +7,7 @@ releases:
   - name: hurricanehunter
     version: latest
 
-networks:
-  - name: cf1
-    subnets: (( merge ))
+networks: (( merge ))
 
 jobs:
   - name: hurricanehunter
@@ -22,9 +20,7 @@ jobs:
     properties:
       network_name: cf1
 
-properties:
-  warden:
-    kernel_network_tuning_enabled: true
+properties: (( merge ))
 
 meta:
   stemcell:
@@ -35,8 +31,7 @@ compilation:
   workers: 1
   network: cf1
   reuse_compilation_vms: true
-  cloud_properties:
-    name: random
+  cloud_properties: (( merge ))
 
 update:
   canaries: 1
@@ -49,5 +44,4 @@ resource_pools:
     network: cf1
     size: (( auto ))
     stemcell: (( meta.stemcell ))
-    cloud_properties:
-      name: random
+    cloud_properties: (( merge ))

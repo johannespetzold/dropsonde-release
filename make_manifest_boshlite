@@ -15,7 +15,7 @@ fi
 temp_dir=${TMPDIR:-${RELEASE_HOME}/tmp}/$$.tmp
 mkdir -p $temp_dir
 
-cp $RELEASE_HOME/templates/cf-stub-spiff.yml $temp_dir/cf-stub-with-uuid.yml
+cp $RELEASE_HOME/templates/hurricanehunter-stub-boshlite.yml $temp_dir/cf-stub-with-uuid.yml
 
 echo $DIRECTOR_UUID
 perl -pi -e "s/PLACEHOLDER-DIRECTOR-UUID/$DIRECTOR_UUID/g" $temp_dir/cf-stub-with-uuid.yml

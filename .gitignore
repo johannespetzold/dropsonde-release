@@ -5,3 +5,5 @@ dev_releases
 config/dev.yml
 config/private.yml
 templates/manifest.yml
+src/hurricanehunter/bin
+src/hurricanehunter/pkg

@@ -13,12 +13,12 @@ jobs:
   - name: hurricanehunter
     template: hurricanehunter
     instances: 1
-    resource_pool: medium_z1
+    resource_pool: small_z1
     networks:
-      - name: cf1
+      - name: dropsonde
         static_ips: (( merge ))
     properties:
-      network_name: cf1
+      network_name: dropsonde
 
 properties: (( merge ))
 
@@ -29,7 +29,7 @@ meta:
 
 compilation:
   workers: 1
-  network: cf1
+  network: dropsonde
   reuse_compilation_vms: true
   cloud_properties: (( merge ))
 
@@ -40,8 +40,8 @@ update:
   update_watch_time: 5000-600000
 
 resource_pools:
-  - name: medium_z1
-    network: cf1
+  - name: small_z1
+    network: dropsonde
     size: (( auto ))
     stemcell: (( meta.stemcell ))
     cloud_properties: (( merge ))

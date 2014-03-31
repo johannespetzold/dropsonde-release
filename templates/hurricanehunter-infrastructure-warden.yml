@@ -7,10 +7,10 @@ meta:
     name: bosh-warden-boshlite-ubuntu
 
 networks:
-  - name: cf1
+  - name: dropsonde
     subnets:
     - cloud_properties:
-        name: random
+        name: dropsonde
       range: 10.244.0.0/24
       reserved:
       - 10.244.0.1
@@ -20,6 +20,19 @@ networks:
 jobs:
   - name: hurricanehunter
     networks:
-      - name: cf1
+      - name: dropsonde
         static_ips:
         - 10.244.0.2
+
+compilation:
+  cloud_properties:
+    name: random
+
+resource_pools:
+  - name: small_z1
+    cloud_properties:
+      name: random
+
+properties:
+  warden:
+    kernel_network_tuning_enabled: true

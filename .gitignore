@@ -7,3 +7,4 @@ config/private.yml
 templates/manifest.yml
 src/hurricanehunter/bin
 src/hurricanehunter/pkg
+tmp

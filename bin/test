@@ -1,0 +1,21 @@
+#!/bin/bash -e 
+
+BIN_DIR=`pwd`/`dirname $0`
+RELEASE_DIR=$BIN_DIR/..
+
+export GOPATH=$RELEASE_DIR/src/hurricanehunter
+export PATH=$GOPATH/bin:$PATH
+
+go get code.google.com/p/go.tools/cmd/vet
+go get -v github.com/onsi/ginkgo
+go get -v github.com/onsi/gomega
+go install -v github.com/onsi/ginkgo/ginkgo
+
+echo "Running go fmt..."
+go fmt github.com/cloudfoundry-incubator/dropsonde/...
+
+echo "Running go vet..."
+go vet github.com/cloudfoundry-incubator/dropsonde/...
+
+echo "Running ginkgo tests..."
+ginkgo -r $GOPATH/src/github.com/cloudfoundry-incubator/dropsonde

@@ -1,7 +1,8 @@
 ---
 name: hurricanehunter
 templates:
-  hurricanehunter_ctl: bin/hurricanehunter_ctl
+  bin/hurricanehunter_ctl.erb: bin/hurricanehunter_ctl
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
 
 packages:
 - hurricanehunter

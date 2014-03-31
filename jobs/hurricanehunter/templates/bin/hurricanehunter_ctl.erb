@@ -1,11 +1,12 @@
 #!/bin/bash
 
+source /var/vcap/jobs/hurricanehunter/helpers/ctl_utils.sh
+
 JOB_NAME=hurricanehunter
 RUN_DIR=/var/vcap/sys/run/$JOB_NAME
 LOG_DIR=/var/vcap/sys/log/$JOB_NAME
 CONFIG_DIR=/var/vcap/jobs/$JOB_NAME/config
 EPHEMERAL=/var/vcap/data/$JOB_NAME
-PERSISTENT=/var/vcap/store/$JOB_NAME
 PIDFILE=$RUN_DIR/$JOB_NAME.pid
 RUNAS=vcap
 
@@ -16,19 +17,23 @@ case $1 in
 
   start)
     mkdir -p $RUN_DIR $LOG_DIR $EPHEMERAL
-    chown -R $RUNAS:$RUNAS $RUN_DIR $LOG_DIR $EPHEMERAL $PERSISTENT
+    chown -R $RUNAS:$RUNAS $RUN_DIR $LOG_DIR $EPHEMERAL
 
     ## Start Code Here
-    
+    export BOSH_JOB_NAME=<%= name %>
+    export BOSH_JOB_INSTANCE=<%= index %>
+
+    pid_guard $PID_FILE $JOB_NAME
     echo $$ >> $PIDFILE
     exec /var/vcap/packages/hurricanehunter/hurricanehunter \
-         >>$LOG_DIR/$JOB_NAME.stdout.log \
+         1>>$LOG_DIR/$JOB_NAME.stdout.log \
          2>>$LOG_DIR/$JOB_NAME.stderr.log
 
     ;;
 
   stop)
-    rm -f $PIDFILE
+    kill_and_wait  $PIDFILE
+
     ;;
 
   *)

@@ -1,5 +1,7 @@
 .blobs
 .dev_builds
+.final_builds/**/*.tgz
+.idea/workspace.xml
 blobs
 dev_releases
 config/dev.yml
@@ -8,4 +10,4 @@ templates/manifest.yml
 src/hurricanehunter/bin
 src/hurricanehunter/pkg
 tmp
-.final_builds/**/*.tgz
+releases/*.tgz

@@ -8,3 +8,4 @@ templates/manifest.yml
 src/hurricanehunter/bin
 src/hurricanehunter/pkg
 tmp
+.final_builds/**/*.tgz

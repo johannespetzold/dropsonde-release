@@ -10,5 +10,5 @@ echo "Running go vet..."
 go vet github.com/cloudfoundry-incubator/dropsonde/...
 
 echo "Running ginkgo tests..."
-ginkgo -r $RELEASE_DIR/src/hurricanehunter/src/hurricanehunter
-ginkgo -r $RELEASE_DIR/src/hurricanehunter/src/github.com/cloudfoundry-incubator/dropsonde
+ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/hurricanehunter
+ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/github.com/cloudfoundry-incubator/dropsonde

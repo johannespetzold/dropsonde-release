@@ -1,4 +1,4 @@
-# HurricaneHunter Release
+# HurricaneHunter Release [![Build Status](https://travis-ci.org/cf-lamb/hurricanehunter-release.svg?branch=master)](https://travis-ci.org/cf-lamb/hurricanehunter-release)
 
 BOSH release for the HurricaneHunter example application in [dropsonde](https://github.com/cloudfoundry-incubator/dropsonde)
 

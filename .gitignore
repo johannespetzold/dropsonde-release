@@ -1,7 +1,7 @@
 .blobs
 .dev_builds
 .final_builds/**/*.tgz
-.idea/workspace.xml
+.idea
 blobs
 dev_releases
 config/dev.yml

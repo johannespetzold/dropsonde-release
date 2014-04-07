@@ -4,8 +4,8 @@ notifications:
     - cf-lamb@pivotallabs.com
 
 install:
-  - bin/update-travis
-scritp:
+  - bin/update
+script:
   - bin/test
 go:
   - 1.2.1

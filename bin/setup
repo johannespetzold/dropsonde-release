@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+BIN_DIR=$(sh -c "cd $(dirname $BASH_SOURCE); pwd")
+
+export RELEASE_DIR=$BIN_DIR/..
+TMP_DIR=$RELEASE_DIR/tmp
+
+mkdir -p $TMP_DIR
+export GOPATH=$TMP_DIR:$RELEASE_DIR/src/hurricanehunter
+export PATH=$GOPATH/bin:$PATH
+
+go get code.google.com/p/go.tools/cmd/vet
+go get -v github.com/onsi/ginkgo
+go get -v github.com/onsi/gomega
+go install -v github.com/onsi/ginkgo/ginkgo

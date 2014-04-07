@@ -1,17 +1,7 @@
 #!/bin/bash -e 
 
-BIN_DIR=`pwd`/`dirname $0`
-RELEASE_DIR=$BIN_DIR/..
-TMP_DIR=$RELEASE_DIR/tmp
-
-mkdir -p $TMP_DIR
-export GOPATH=$TMP_DIR:$RELEASE_DIR/src/hurricanehunter
-export PATH=$GOPATH/bin:$PATH
-
-go get code.google.com/p/go.tools/cmd/vet
-go get -v github.com/onsi/ginkgo
-go get -v github.com/onsi/gomega
-go install -v github.com/onsi/ginkgo/ginkgo
+BIN_DIR=`dirname $0`
+source $BIN_DIR/setup
 
 echo "Running go fmt..."
 go fmt github.com/cloudfoundry-incubator/dropsonde/...

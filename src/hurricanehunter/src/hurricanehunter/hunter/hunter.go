@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	http.DefaultTransport = dropsonde.InstrumentedRoundTripper(http.DefaultTransport, "hunter", 0)
+	http.DefaultTransport, _ = dropsonde.InstrumentedRoundTripper(http.DefaultTransport, "hunter", 0)
 }
 
 type Handler struct {
@@ -22,7 +22,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	url := r.FormValue("url")
-	log.Println(url)
+	log.Printf("getting %s\n", url)
 
 	resp, err := h.Client.Get(url)
 	if err != nil {

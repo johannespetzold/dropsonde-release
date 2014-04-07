@@ -1,3 +1,4 @@
+*.iml
 .blobs
 .dev_builds
 .final_builds/**/*.tgz

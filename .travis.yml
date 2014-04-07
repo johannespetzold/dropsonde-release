@@ -4,6 +4,6 @@ notifications:
     - cf-lamb@pivotallabs.com
 
 install:
-  - go get -d -v -t ./...
+  - bin/update
 go:
   - 1.2.1

@@ -11,6 +11,9 @@ func main() {
 	log.Print("Launching HurricaneHunter on port 8080 … testing dropsondes")
 
 	handler := new(hunter.Handler)
-	instrumentedHunter, _ := dropsonde.InstrumentedHandler(handler, "hunter", 0)
-	log.Fatal(http.ListenAndServe(":8080", instrumentedHunter))
+	instrumentedHunter, err := dropsonde.InstrumentedHandler(handler, "hunter", 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Print(http.ListenAndServe(":8080", instrumentedHunter))
 }

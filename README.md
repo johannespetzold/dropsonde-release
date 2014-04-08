@@ -1,4 +1,4 @@
-# Dropsonde Release [![Build Status](https://travis-ci.org/cf-lamb/hurricanehunter-release.svg?branch=master)](https://travis-ci.org/cf-lamb/hurricanehunter-release)
+# Dropsonde Release [![Build Status](https://travis-ci.org/cf-lamb/dropsonde-release.svg?branch=master)](https://travis-ci.org/cf-lamb/dropsonde-release)
 
 BOSH release for example components using [dropsonde](https://github.com/cloudfoundry-incubator/dropsonde) metrics emission.
 

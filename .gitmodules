@@ -7,3 +7,6 @@
 [submodule "src/github.com/nu7hatch/gouuid"]
 	path = src/github.com/nu7hatch/gouuid
 	url = https://github.com/nu7hatch/gouuid.git
+[submodule "src/dropsonde-agent"]
+	path = src/dropsonde-agent
+	url = https://github.com/cloudfoundry-incubator/dropsonde-agent.git

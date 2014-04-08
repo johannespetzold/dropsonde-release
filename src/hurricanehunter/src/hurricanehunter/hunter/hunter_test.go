@@ -3,9 +3,9 @@ package hunter_test
 import (
 	"bytes"
 	"fmt"
-	"hurricanehunter/hunter"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"hurricanehunter/hunter"
 	"net/http"
 	"net/http/httptest"
 	"net/url"

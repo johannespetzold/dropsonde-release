@@ -1,24 +1,13 @@
 #!/bin/bash -e 
 
-cd `dirname $0`/..
-RELEASE_DIR=`pwd`
-TMP_DIR=$RELEASE_DIR/tmp
+BIN_DIR=$(dirname $0)
+source $BIN_DIR/setup
 
-mkdir -p $TMP_DIR
-export GOPATH=$TMP_DIR:$RELEASE_DIR/src/hurricanehunter
-export PATH=$TMP_DIR/bin:$PATH
+PACKAGES="github.com/cloudfoundry-incubator/dropsonde dropsonde-agent hurricanehunter"
 
-go get code.google.com/p/go.tools/cmd/vet
-go get -v github.com/onsi/ginkgo
-go get -v github.com/onsi/gomega
-go install -v github.com/onsi/ginkgo/ginkgo
-
-echo "Running go fmt..."
-go fmt github.com/cloudfoundry-incubator/dropsonde/...
-
-echo "Running go vet..."
-go vet github.com/cloudfoundry-incubator/dropsonde/...
-
-echo "Running ginkgo tests..."
-ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/hurricanehunter
-ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/github.com/cloudfoundry-incubator/dropsonde
+for package in $PACKAGES; do
+  echo "Running go fmt/vet/ginkgo for $package"
+  go fmt $package/...
+  go vet $package/...
+  ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/$package
+done

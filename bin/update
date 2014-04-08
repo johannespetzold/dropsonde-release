@@ -1,14 +1,8 @@
 #!/bin/bash
 set -e
 
-BIN_DIR=$(sh -c "cd $(dirname $BASH_SOURCE); pwd")
-
-export RELEASE_DIR=$BIN_DIR/..
-TMP_DIR=$RELEASE_DIR/tmp
-
-mkdir -p $TMP_DIR
-export GOPATH=$TMP_DIR:$RELEASE_DIR/src/hurricanehunter:$GOPATH
-export PATH=$TMP_DIR/bin:$PATH
+BIN_DIR=$(dirname $0)
+source $BIN_DIR/setup
 
 submodule_warning='Uncommitted submodules changes will be clobbered'
 

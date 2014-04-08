@@ -9,5 +9,5 @@ for package in $PACKAGES; do
   echo "Running go fmt/vet/ginkgo for $package"
   go fmt $package/...
   go vet $package/...
-  ginkgo -race -r $RELEASE_DIR/src/hurricanehunter/src/$package
+  ginkgo -race -r $RELEASE_DIR/src/$package
 done

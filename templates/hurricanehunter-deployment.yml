@@ -4,7 +4,7 @@ name: (( merge ))
 director_uuid: (( merge ))
 
 releases:
-  - name: hurricanehunter
+  - name: dropsonde
     version: latest
 
 networks: (( merge ))

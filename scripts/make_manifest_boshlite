@@ -2,7 +2,7 @@
 
 BOSH_RELEASES_DIR=${BOSH_RELEASES_DIR:-~/workspace}
 
-RELEASE_HOME=$(dirname $0)
+RELEASE_HOME=$(dirname $0)/..
 BOSH_STATUS=$(bosh status)
 EXPECTED_DIRECTOR_NAME="Bosh Lite Director"
 DIRECTOR_UUID=$(echo "$BOSH_STATUS" | grep UUID | awk '{print $2}')
@@ -14,7 +14,7 @@ fi
 
 echo $DIRECTOR_UUID
 
-$RELEASE_HOME/generate_deployment_manifest \
+$RELEASE_HOME/scripts/generate_deployment_manifest \
                                               warden \
                                               $* > $RELEASE_HOME/templates/manifest.yml
 

@@ -1,0 +1,3 @@
+RELEASE_DIR=`dirname $0`/..
+
+go run $RELEASE_DIR/src/dropsonde-agent/main.go --debug

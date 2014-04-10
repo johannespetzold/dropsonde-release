@@ -3,7 +3,7 @@
 BIN_DIR=$(dirname $0)
 source $BIN_DIR/setup
 
-PACKAGES="github.com/cloudfoundry-incubator/dropsonde hurricanehunter"
+PACKAGES="github.com/cloudfoundry-incubator/dropsonde dropsonde-agent hurricanehunter"
 
 for package in $PACKAGES; do
   echo "Running go fmt/vet/ginkgo for $package"

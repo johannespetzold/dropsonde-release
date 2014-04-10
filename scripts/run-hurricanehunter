@@ -1,3 +1,4 @@
 RELEASE_DIR=`dirname $0`/..
+source $RELEASE_DIR/bin/setup
 
 go run $RELEASE_DIR/src/hurricanehunter/main.go

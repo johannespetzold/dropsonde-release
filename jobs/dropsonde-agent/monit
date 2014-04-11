@@ -1,0 +1,5 @@
+check process dropsonde-agent
+  with pidfile /var/vcap/sys/run/dropsonde-agent/dropsonde-agent.pid
+  start program "/var/vcap/jobs/dropsonde-agent/bin/dropsonde-agent_ctl start"
+  stop program "/var/vcap/jobs/dropsonde-agent/bin/dropsonde-agent_ctl stop"
+  group vcap

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+source /var/vcap/jobs/dropsonde-agent/helpers/ctl_utils.sh
+
+JOB_NAME=dropsonde-agent
+RUN_DIR=/var/vcap/sys/run/$JOB_NAME
+LOG_DIR=/var/vcap/sys/log/$JOB_NAME
+CONFIG_DIR=/var/vcap/jobs/$JOB_NAME/config
+EPHEMERAL=/var/vcap/data/$JOB_NAME
+PIDFILE=$RUN_DIR/$JOB_NAME.pid
+RUNAS=vcap
+
+exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
+exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR $EPHEMERAL
+    chown -R $RUNAS:$RUNAS $RUN_DIR $LOG_DIR $EPHEMERAL
+
+    ## Start Code Here
+
+    pid_guard $PID_FILE $JOB_NAME
+    echo $$ >> $PIDFILE
+    exec /var/vcap/packages/dropsonde-agent/dropsonde-agent --debug  \
+         1>>$LOG_DIR/$JOB_NAME.stdout.log \
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
+
+    ;;
+
+  stop)
+    kill_and_wait  $PIDFILE
+
+    ;;
+
+  *)
+  echo "Usage: dropsonde_agent_ctl {start|stop}" ;;
+esac

@@ -1,0 +1,8 @@
+---
+name: dropsonde-agent
+templates:
+  bin/dropsonde-agent_ctl.erb: bin/dropsonde-agent_ctl
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+
+packages:
+- dropsonde-agent

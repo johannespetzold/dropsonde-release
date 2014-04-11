@@ -10,15 +10,23 @@ releases:
 networks: (( merge ))
 
 jobs:
-  - name: hurricanehunter
-    template: hurricanehunter
-    instances: 1
-    resource_pool: small_z1
+  - name: dropsonde-test-harness
+    instances: (( merge ))
+    resource_pool: (( merge ))
+    templates:
+    - name: dropsonde-agent
+      release: dropsonde
+    - name: hurricanehunter_0
+      release: dropsonde
+    - name: hurricanehunter_1
+      release: dropsonde
+    - name: hurricanehunter_2
+      release: dropsonde
     networks:
-      - name: dropsonde
-        static_ips: (( merge ))
+     - name: dropsonde
+       static_ips: (( merge ))
     properties:
-      network_name: dropsonde
+       network_name: dropsonde
 
 properties: (( merge ))
 
@@ -33,15 +41,10 @@ compilation:
   reuse_compilation_vms: true
   cloud_properties: (( merge ))
 
+resource_pools: (( merge ))
 update:
   canaries: 1
   max_in_flight: 3
   canary_watch_time: 30000-600000
   update_watch_time: 5000-600000
 
-resource_pools:
-  - name: small_z1
-    network: dropsonde
-    size: (( auto ))
-    stemcell: (( meta.stemcell ))
-    cloud_properties: (( merge ))

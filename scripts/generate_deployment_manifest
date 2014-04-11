@@ -13,6 +13,6 @@ fi
 
 
 spiff merge \
-  $templates/hurricanehunter-deployment.yml \
-  $templates/hurricanehunter-infrastructure-${infrastructure}.yml \
+  $templates/dropsonde-deployment.yml \
+  $templates/dropsonde-infrastructure-${infrastructure}.yml \
   $*

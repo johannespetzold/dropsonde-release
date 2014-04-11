@@ -1,5 +1,5 @@
 ---
-name: hurricanehunter-warden
+name: dropsonde-warden
 director_uuid: PLACEHOLDER-DIRECTOR-UUID
 
 meta:
@@ -12,17 +12,20 @@ networks:
     - cloud_properties:
         name: random
       range: 10.244.3.0/24
+      gateway: 10.244.3.1
       reserved:
-      - 10.244.3.1
+      - 10.244.3.2 - 10.244.3.6
+      - 10.244.3.11 - 10.244.3.11
       static:
-      - 10.244.3.2 - 10.244.3.10
+      - 10.244.3.7 - 10.244.3.10
 
 jobs:
-  - name: hurricanehunter
+  - name: dropsonde-test-harness
+    instances: 1
     networks:
       - name: dropsonde
         static_ips:
-        - 10.244.3.4
+        - 10.244.3.7
 
 compilation:
   cloud_properties:

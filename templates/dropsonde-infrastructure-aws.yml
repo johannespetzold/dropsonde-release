@@ -1,0 +1,24 @@
+---
+name: dropsonde-aws
+
+meta:
+  stemcell:
+    name: bosh-aws-xen-ubuntu
+
+networks:
+  - name: dropsonde
+    type: manual
+    subnets: (( merge ))
+
+jobs:
+  - name: dropsonde-test-harness
+    networks:
+      - name: dropsonde
+        static_ips: (( merge ))
+
+compilation:
+  cloud_properties:
+    instance_type: c1.medium
+
+resource_pools: (( merge ))
+

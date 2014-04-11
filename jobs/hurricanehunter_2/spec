@@ -1,7 +1,7 @@
 ---
-name: hurricanehunter
+name: hurricanehunter_2
 templates:
-  bin/hurricanehunter_ctl.erb: bin/hurricanehunter_ctl
+  bin/hurricanehunter_2_ctl.erb: bin/hurricanehunter_2_ctl
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 
 packages:

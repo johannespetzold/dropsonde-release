@@ -1,0 +1,5 @@
+check process hurricanehunter_2
+  with pidfile /var/vcap/sys/run/hurricanehunter_2/hurricanehunter_2.pid
+  start program "/var/vcap/jobs/hurricanehunter_2/bin/hurricanehunter_2_ctl start"
+  stop program "/var/vcap/jobs/hurricanehunter_2/bin/hurricanehunter_2_ctl stop"
+  group vcap

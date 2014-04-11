@@ -1,0 +1,8 @@
+---
+name: hurricanehunter_0
+templates:
+  bin/hurricanehunter_0_ctl.erb: bin/hurricanehunter_0_ctl
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+
+packages:
+- hurricanehunter

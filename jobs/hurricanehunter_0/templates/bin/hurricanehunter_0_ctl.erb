@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /var/vcap/jobs/hurricanehunter/helpers/ctl_utils.sh
-
 JOB_NAME=hurricanehunter_0
+
+source /var/vcap/jobs/$JOB_NAME/helpers/ctl_utils.sh
 RUN_DIR=/var/vcap/sys/run/$JOB_NAME
 LOG_DIR=/var/vcap/sys/log/$JOB_NAME
 CONFIG_DIR=/var/vcap/jobs/$JOB_NAME/config
@@ -22,6 +22,7 @@ case $1 in
     ## Start Code Here
     export BOSH_JOB_NAME=<%= name %>
     export BOSH_JOB_INSTANCE=<%= index %>
+    export HH_PORT=<%= p("hh0.port") %>
 
     pid_guard $PID_FILE $JOB_NAME
     echo $$ >> $PIDFILE
@@ -37,5 +38,5 @@ case $1 in
     ;;
 
   *)
-  echo "Usage: hurricanehunter_ctl {start|stop}" ;;
+  echo "Usage: $JOB_NAME_ctl {start|stop}" ;;
 esac

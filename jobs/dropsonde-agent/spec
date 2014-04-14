@@ -6,3 +6,6 @@ templates:
 
 packages:
 - dropsonde-agent
+
+properties:
+  dummy: "true"

@@ -6,3 +6,8 @@ templates:
 
 packages:
 - hurricanehunter
+
+properties:
+  hh2.port:
+    description: "hurricanehunter listening port"
+    default: 8087

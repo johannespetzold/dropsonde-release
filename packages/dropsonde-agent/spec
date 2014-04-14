@@ -3,4 +3,4 @@ name: dropsonde-agent
 dependencies:
 - golang
 files:
-- "**/*"
+- dropsonde-agent/**/*

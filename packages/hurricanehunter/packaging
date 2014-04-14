@@ -4,7 +4,7 @@ export GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export PATH=/var/vcap/packages/git/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 
-export GOPATH=$PWD
+export GOPATH=$PWD/hurricanehunter/src/hurricanehunter/Godeps/_workspace:$PWD/hurricanehunter
 
 go install hurricanehunter
-cp -a $PWD/bin/hurricanehunter ${BOSH_INSTALL_TARGET}
+cp -a $PWD/hurricanehunter/bin/hurricanehunter ${BOSH_INSTALL_TARGET}

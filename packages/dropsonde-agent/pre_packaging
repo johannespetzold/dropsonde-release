@@ -1,7 +1,0 @@
-set -e
-set -x
-
-files=$(ls -d $BUILD_DIR/* | grep -v packaging)
-
-mkdir $BUILD_DIR/src
-mv $files $BUILD_DIR/src

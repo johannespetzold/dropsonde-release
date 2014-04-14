@@ -4,7 +4,7 @@ export GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export PATH=/var/vcap/packages/git/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 
-export GOPATH=$PWD
+export GOPATH=$PWD/dropsonde-agent/src/dropsonde-agent/Godeps/_workspace:$PWD/dropsonde-agent
 
 go install dropsonde-agent
-cp -a $PWD/bin/dropsonde-agent ${BOSH_INSTALL_TARGET}
+cp -a $PWD/dropsonde-agent/bin/dropsonde-agent ${BOSH_INSTALL_TARGET}

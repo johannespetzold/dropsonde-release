@@ -22,7 +22,7 @@ echo ""
 
 set -x # show the commands we are running
 
-git pull
+git pull --rebase
 
 # Update submodule pointers; Clean out any submodule changes
 git submodule foreach --recursive 'git submodule sync; git clean -d --force --force'
@@ -32,11 +32,3 @@ git submodule update --init --recursive --force
 
 set +x # stop showing commands
 echo "Dropsonde has been updated"
-
-echo "Fetching dropsonde dependencies, this may take awhile..."
-set -x
-go get code.google.com/p/go.tools/cmd/vet
-go get -v github.com/onsi/ginkgo
-go get -v github.com/onsi/gomega
-go install -v github.com/onsi/ginkgo/ginkgo
-

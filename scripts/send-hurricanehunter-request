@@ -1,1 +1,0 @@
-curl --data "url=http://www.lemoda.net/games/figlet/figlet.cgi?text=DropSonde" localhost:8080
